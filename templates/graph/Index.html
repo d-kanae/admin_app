@@ -1,0 +1,28 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}">{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block title %}グラフ作成 | マイページ{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">管理ツール</a></h1>
+{% endblock %}
+
+<!-- <head>
+	<meta charset="utf-8">
+	<title>グラフ</title>
+</head> -->
+{% block graph %}
+<body>
+	<h1>日別の売り上げ</h1>
+	<img src="data:image/png;base64,{{ chart | safe }}">
+</body>
+
+{% endblock %}
